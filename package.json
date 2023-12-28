@@ -1,81 +1,51 @@
 {
-  "name": "double-metaphone",
-  "version": "2.0.1",
-  "description": "Double Metaphone algorithm",
-  "license": "MIT",
-  "keywords": [
-    "lawrence",
-    "philips",
-    "double",
-    "metaphone",
-    "cli",
-    "bin"
-  ],
-  "homepage": "https://words.github.io/double-metaphone/",
-  "repository": "words/double-metaphone",
-  "funding": {
-    "type": "github",
-    "url": "https://github.com/sponsors/wooorm"
-  },
-  "bugs": "https://github.com/words/double-metaphone/issues",
-  "author": "Titus Wormer <tituswormer@gmail.com> (https://wooorm.com)",
-  "contributors": [
-    "Titus Wormer <tituswormer@gmail.com> (https://wooorm.com)"
-  ],
-  "sideEffects": false,
-  "type": "module",
-  "bin": "cli.js",
-  "main": "index.js",
-  "types": "index.d.ts",
-  "files": [
-    "index.d.ts",
-    "index.js",
-    "cli.js"
-  ],
-  "devDependencies": {
-    "@types/node": "^18.0.0",
-    "c8": "^7.0.0",
-    "prettier": "^2.0.0",
-    "remark-cli": "^11.0.0",
-    "remark-preset-wooorm": "^9.0.0",
-    "type-coverage": "^2.0.0",
-    "type-fest": "^3.0.0",
-    "typescript": "^4.0.0",
-    "xo": "^0.52.0"
-  },
-  "scripts": {
-    "prepack": "npm run build && npm run format",
-    "build": "tsc --build --clean && tsc --build && type-coverage",
-    "format": "remark . -qfo && prettier . -w --loglevel warn && xo --fix",
-    "test-api": "node --conditions development test.js",
-    "test-coverage": "c8 --check-coverage --100 --reporter lcov npm run test-api",
-    "test": "npm run build && npm run format && npm run test-coverage"
-  },
-  "nyc": {
-    "check-coverage": true,
-    "lines": 100,
-    "functions": 100,
-    "branches": 100
-  },
-  "prettier": {
-    "tabWidth": 2,
-    "useTabs": false,
-    "singleQuote": true,
-    "bracketSpacing": false,
-    "semi": false,
-    "trailingComma": "none"
-  },
-  "xo": {
-    "prettier": true
-  },
-  "remarkConfig": {
-    "plugins": [
-      "preset-wooorm"
-    ]
-  },
-  "typeCoverage": {
-    "atLeast": 100,
-    "detail": true,
-    "strict": true
-  }
+	"name": "@depthbomb/double-metaphone",
+	"version": "0.1.0",
+	"author": {
+		"name": "depthbomb",
+		"url": "https://github.com/depthbomb"
+	},
+	"description": "Fast Double Metaphone algorithm",
+	"license": "MIT",
+	"main": "./dist/index.js",
+	"module": "./dist/index.mjs",
+	"types": "./dist/index.d.ts",
+	"exports": {
+		"import": "./dist/index.mjs",
+		"require": "./dist/index.js",
+		"types": {
+			"import": "./dist/index.d.mts",
+			"require": "./dist/index.d.ts"
+		}
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/depthbomb/double-metaphone.git"
+	},
+	"bugs": {
+		"url": "https://github.com/depthbomb/double-metaphone/issues"
+	},
+	"files": [
+		"dist"
+	],
+	"scripts": {
+		"test": "yarn build && node ./test.js",
+		"build": "tsup"
+	},
+	"devDependencies": {
+		"@types/eslint": "^8.56.0",
+		"@types/node": "^20.10.5",
+		"@typescript-eslint/eslint-plugin": "^6.16.0",
+		"@typescript-eslint/parser": "^6.16.0",
+		"eslint": "^8.56.0",
+		"release-it": "^17.0.1",
+		"terser": "^5.26.0",
+		"tslib": "^2.6.2",
+		"tsup": "^8.0.1",
+		"typescript": "^5.3.3"
+	},
+	"packageManager": "yarn@4.0.2"
 }
