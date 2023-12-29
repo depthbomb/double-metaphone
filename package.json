@@ -32,8 +32,8 @@
 		"dist"
 	],
 	"scripts": {
-		"test": "yarn build && node ./test.js",
-		"build": "tsup"
+		"build": "tsup",
+		"release": "yarn build && release-it"
 	},
 	"devDependencies": {
 		"@types/eslint": "^8.56.0",
